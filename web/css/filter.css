@@ -1,0 +1,105 @@
+.filters-applied__list {
+    text-align: left
+}
+
+
+.filters-applied__item {
+    display: block;
+    float: left;
+    margin: 10px 16px 0 0
+}
+
+.filters-applied__item:last-child {
+    margin-right: 0
+}
+
+.filters-applied__link {
+    /*display: inline-block;*/
+    vertical-align:center;
+    color: #493333;
+    border-radius: 8px;
+    background: #e0f1ef;
+    /*font: 1.2rem PTRootUIWeb,-apple-system,BlinkMacSystemFont,sans-serif;*/
+    /*line-height: 1.6rem;*/
+    /*padding: 2px;*/
+    position: relative;
+    transition: all .3s linear
+}
+
+@media only screen and (max-width: 1300px) {
+    .filters-applied__link {
+        /*font-size:1.1428571428571428rem*/
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .filters-applied__link {
+        /*font-size:1.0909090909090908rem*/
+    }
+}
+
+@media (max-width: 1024px) and (min-width:768px) {
+    .filters-applied__link {
+        /*font-size:1.2rem*/
+    }
+}
+
+@media (max-width: 374px) {
+    .filters-applied__link {
+        /*font-size:1.0909090909090908rem*/
+    }
+}
+
+@media (max-width: 1024px) {
+    .filters-applied__link {
+        /*font:1.6rem PTRootUIWeb,-apple-system,BlinkMacSystemFont,sans-serif;*/
+        /*padding: 6px 2.7rem 8px 12px*/
+    }
+}
+
+/*@media (max-width: 1024px) and only screen and (max-width:1300px) {*/
+/*    .filters-applied__link {*/
+/*        font-size:1.5238095238095237rem*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 1024px) and only screen and (max-width:1200px) {*/
+/*    .filters-applied__link {*/
+/*        font-size:1.4545454545454546rem*/
+/*    }*/
+/*}*/
+
+@media (max-width: 1024px) and (max-width:1024px) and (min-width:768px) {
+    .filters-applied__link {
+        /*font-size:1.6rem*/
+    }
+}
+
+@media (max-width: 1024px) and (max-width:374px) {
+    .filters-applied__link {
+        /*font-size:1.4545454545454546rem*/
+    }
+}
+
+.filters-applied__link:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    /*background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.707.293A1 1 0 0 0 .293 1.707l1.435 1.435a1 1 0 0 1 0 1.414L.293 5.991a1 1 0 0 0 1.414 1.414L3.142 5.97a1 1 0 0 1 1.414 0l1.435 1.435a1 1 0 0 0 1.414-1.414L5.97 4.556a1 1 0 0 1 0-1.414l1.435-1.435A1 1 0 1 0 5.991.293L4.556 1.728a1 1 0 0 1-1.414 0L1.707.293z'/%3E%3C/svg%3E") no-repeat 50%;*/
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px
+}
+
+.filters-applied__value {
+    font-weight: 700;
+    padding-right: 0
+}
+
+@media (max-width: 1024px) {
+    .filters-applied__value {
+        margin:0 0 0 .7rem
+    }
+}

@@ -1,0 +1,245 @@
+.nav > li > a:focus, .nav > li > a:hover{
+    background-color: transparent;
+}
+
+body > div.wrap > div.slider_area > div.ilstration_img.wow.fadeInRight.d-none.d-lg-block.text-right > img{
+    width: 200px;
+}
+
+
+.login-logo,
+.register-logo {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+.login-logo a,
+.register-logo a {
+    color: #444;
+}
+.login-page,
+.register-page {
+    height: auto;
+    background: #d2d6de;
+}
+.login-box,
+.register-box {
+    width: 360px;
+    margin: 7% auto;
+}
+@media (max-width: 768px) {
+    .login-box,
+    .register-box {
+        width: 90%;
+        margin-top: 20px;
+    }
+}
+.login-box-body,
+.register-box-body {
+    background: #fff;
+    padding: 20px;
+    border-top: 0;
+    color: #666;
+}
+.login-box-body .form-control-feedback,
+.register-box-body .form-control-feedback {
+    color: #777;
+}
+.login-box-msg,
+.register-box-msg {
+    margin: 0;
+    text-align: center;
+    padding: 0 20px 20px 20px;
+}
+.social-auth-links {
+    margin: 10px 0;
+}
+
+#txtSms{
+ box-sizing: content-box;
+ letter-spacing: 4px;
+    /*margin: 4px;*/
+    width: 90%;
+ text-align: center;
+}
+
+
+.user-card{
+    background-color: #e9ecef;
+    border-radius: 15px;
+    border-color: #8a8a8a;
+    padding: 10px;
+    margin: 20px;
+}
+
+.profile-username{
+    color:darkblue;
+    font-size: larger;
+}
+
+.profile-region{
+    color:darkslateblue;
+    /*font-size: larger;*/
+}
+
+.profile-service{
+    color:darkred;
+    /*font-size: larger;*/
+}
+
+.profile-note{
+    color:#7A838B;
+    /*font-size: larger;*/
+}
+
+.searchclear {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    height: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #5a87b7;
+}
+
+
+#chat{
+    overflow: auto;
+}
+
+
+.div-status{
+    border: solid;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-new{
+    background-color:#d7dbe3;
+}
+.status-approved{
+    background-color:lightgreen;
+}
+
+.status-declined{
+    background-color:firebrick;
+    color:ivory;
+}
+
+.margin-top-30{
+    margin-top: 30px;
+}
+
+
+.card-body.last-message:hover{
+    cursor: pointer;
+}
+
+.message-list-item{
+    margin-right: 0px;
+    margin-top: 4px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 1px none var(--gray);
+}
+
+
+.message-card{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-style: solid;
+    border-color: var(--gray);
+}
+
+.margin-left-50{
+    margin-left: 50px;
+}
+
+.margin-right-50{
+    margin-right: 50px;
+}
+
+.send-message{
+    /*border-style: solid;*/
+    /*border-color: var(--gray);*/
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.list-group-my-message{
+    height: 400px;
+    overflow: auto;
+    max-width: 720px;
+}
+
+.list-group-last_message{
+    height: 400px;
+    overflow: auto;
+}
+
+.last-message-selected{
+    background-color: #d8efdd;
+}
+
+
+.list-group-review{
+    border-style: solid;
+    border-color: #96bfc5;
+    max-height: 450px;
+    overflow: auto;
+}
+
+.top-bar{
+    background: linear-gradient(
+            135deg
+            , #1650e2 0%, #7e51ec 100%);
+}
+
+.header-main .top-bar-right .custom li a span{
+    display: initial;
+}
+
+
+.header-main .top-bar .contact, .header-main .top-bar.p-3 .contact{
+    display: initial;
+}
+
+.header-slider-img{
+    position: initial;
+}
+
+
+.select2-container .select2-selection--single .select2-selection__clear{
+    position: absolute;
+}
+
+div.conv-form-wrapper div.wrapper-messages{
+    height: 450px;
+}
+
+#usermessages-stars{
+    display: none;
+}
+
+#chat{
+    max-height: 450px;
+    overflow: auto;
+    background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
