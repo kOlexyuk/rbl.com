@@ -7,6 +7,8 @@ use app\modules\user\Module;
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\models\User */
 /* @var $data array */
+/* @var $message \app\modules\main\models\UserMessages */
+/* @var $my_message \app\modules\main\models\UserMessages[] */
 
 $this->title = Module::t('module', 'TITLE_PROFILE');
 $this->params['breadcrumbs'][] = $this->title;
@@ -23,7 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::a(Module::t('module', 'LINK_PASSWORD_CHANGE'), ['password-change'], ['class' => 'btn btn-primary']) ?>
             </p>
 
-            <?php echo   $this->render("@app/modules/user/views/frontend/profile/profile1.php" , ['model'=>$model]) ?>
+            <?php echo   $this->render("@app/modules/user/views/frontend/profile/profile1.php" , ['model'=>$model ,        'message' => $message,
+                'my_message'=>$my_message]) ?>
 
         </div>
     </section>

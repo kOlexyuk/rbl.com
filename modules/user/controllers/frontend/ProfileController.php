@@ -37,11 +37,16 @@ class ProfileController extends Controller
 
     public function actionIndex()
     {
+
+        //  show all approved reviews
+        $my_message =  UserMessages::getApprovedReview(Yii::$app->user->identity->getId());
+
+        $message = new UserMessages();
         return $this->render('index_rejoin', [
 
-            'model' =>    ProfileSearch::getProfile(Yii::$app->user->identity->getId())
-//            'model' => $this->findProfileModel(),// $this->findModel(),
-//            "messages" =>
+            'model' =>    ProfileSearch::getProfile(Yii::$app->user->identity->getId()),
+             'message' => $message,
+            'my_message'=>$my_message
         ]);
     }
 
