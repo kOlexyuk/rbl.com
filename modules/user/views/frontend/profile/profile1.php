@@ -127,33 +127,27 @@ if (YII_ENV_DEV) echo __FILE__;
                                             <?php foreach ($my_message as $msg): ?>
                                                 <?= $this->renderFile("@app/modules/main/views/message/message_div2.php",
                                                 ['model'=>$msg,]); ?>
-
                                             <?php endforeach; ?>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-
                             <?=   $this->render('@app/modules/main/views/message/form_review.php',   ['model'=>$model  ,  'message' => $message,
                                 'my_message'=>$my_message]);?>
                             <?=   $this->render('@app/modules/main/views/message/form_message.php',   ['model'=>$model  ,  'message' => $message,
                                 'my_message'=>$my_message]);?>
-
+                            <?php if(!Yii::$app->user->isGuest ): ?>
                                 <div class="row " id="div_message_button">
                                     <div class="col-md-8 margin-top-30">
                                         <?php if (\app\modules\main\models\UserMessages::isCanSendReviw($model['id'])): ?>
                                             <button type="button" class="btn btn-info btn-single "
                                                     id="btn_send_review"><?= Yii::t('app', 'Send review') ?></button>
                                         <?php endif; ?>
-
                                         <button type="button" class="btn btn-outline-success"
                                                 id="btn_send_message"><?= Yii::t('app', 'Send message') ?></button>
                                     </div>
                                 </div>
-<!--                            --><?php //endif; ?>
-
-
+                            <?php endif; ?>
                         </div>
                     </div>
                     <!--Job Listing-->

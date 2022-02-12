@@ -182,16 +182,7 @@ $this->registerJs($script, View::POS_LOAD);
                                             ])
                                             ->label(Yii::t('app', 'Show contats'))
                                         ;?>
-<!--                                        </div>-->
 
-
-
-<!--                                        <div class="checkbox checkbox-info"> -->
-<!--                                            <label class="custom-control mt-4 custom-checkbox">-->
-<!--                                                <input type="checkbox" class="custom-control-input" form='profile-update-form'>-->
-<!--                                                <span class="custom-control-label text-dark pl-2">--><?//=Yii::t('app', 'Show contats')?><!--</span>-->
-<!--                                            </label>-->
-<!--                                        </div>-->
                                     </div>
                                 </div>
                             </div>
