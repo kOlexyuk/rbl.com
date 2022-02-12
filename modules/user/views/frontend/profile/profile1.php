@@ -124,10 +124,12 @@ if (YII_ENV_DEV) echo __FILE__;
                                             <?= Yii::t('app', 'Feedbacks') ?>
                                         </div>
                                         <div class="col-lg-12 col-md-12  col-sm-12"  id="chat">
+                                            <?php if($my_message): ?>
                                             <?php foreach ($my_message as $msg): ?>
                                                 <?= $this->renderFile("@app/modules/main/views/message/message_div2.php",
                                                 ['model'=>$msg,]); ?>
                                             <?php endforeach; ?>
+                                            <?php endif;?>
                                         </div>
                                     </div>
                                 </div>
