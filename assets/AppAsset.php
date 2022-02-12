@@ -80,7 +80,6 @@ class AppAsset extends AssetBundle
         //<!--Select2 js -->
         "rejoin/assets/plugins/select2/select2.full.min.js",
         "rejoin/assets/js/select2.js",
-
         //<!-- sticky Js-->
         "rejoin/assets/js/sticky.js",
 

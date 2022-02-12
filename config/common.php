@@ -10,7 +10,7 @@ $params = ArrayHelper::merge(
 );
 
 return [
-    'name' => 'workExchange',
+    'name' => 'rbl',
     'language'=>'ru-RU',
     'basePath' => dirname(__DIR__),
     'bootstrap' => [

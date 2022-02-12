@@ -24,12 +24,12 @@ use yii\widgets\ActiveForm;
         <div class="search-background bg-transparent">
             <div class="form row no-gutters ">
                 <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg mx-1 mb-0">
-<!--                    <input type="text" class="form-control input-lg br-tr-md-0 br-br-md-0" id="text4" placeholder="Enter Your Keywords">-->
+                    <!--                    <input type="text" class="form-control input-lg br-tr-md-0 br-br-md-0" id="text4" placeholder="Enter Your Keywords">-->
                     <?= $form->field($model, 'service'
                     )->widget(Select2::classname(), [
                         'data' => \yii\helpers\ArrayHelper::map($model['serviceList'], 'id', 'value'),
                         'options' => ['placeholder' => Yii::t('app', 'Service')  ,'allowClear' => true, 'id'=>'cbService',
-                        'class' => "form-control select2-show-search  border-bottom-0",
+                            'class' => "form-control select2-show-search  border-bottom-0",
                         ],
                         'pluginOptions' => [
 //                           'allowClear' => true,
@@ -39,19 +39,19 @@ use yii\widgets\ActiveForm;
                     ])->label(false) ?>
                 </div>
                 <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg mx-1 mb-0">
-<!--                    <input type="text" class="form-control input-lg br-md-0" id="text5" placeholder="Select Location">-->
+                    <!--                    <input type="text" class="form-control input-lg br-md-0" id="text5" placeholder="Select Location">-->
                     <?= $form->field($model, 'service_area'
                     )->widget(Select2::classname(), [
                         'data' => \yii\helpers\ArrayHelper::map($model['service_areaList'], 'id', 'value'),
                         'options' => ['placeholder' => Yii::t('app', 'Service area'), 'allowClear' => true  , 'id'=>'cbServiceArea'
-                        ,'class'=>"form-control select2-show-search  border-bottom-0"
+                            ,'class'=>"form-control select2-show-search  border-bottom-0"
                         ],
                         'pluginOptions' => [
 //                            'allowClear' => true,
                             'width' => '100%',
                         ],
                     ])->label(false) ?>
-<!--                    <span><img src="rejoin/assets/images/svg/gps.svg" class="location-gps" alt="img"></span>-->
+                    <!--                    <span><img src="rejoin/assets/images/svg/gps.svg" class="location-gps" alt="img"></span>-->
                 </div>
                 <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg mx-1 mb-0">
                     <?= $form->field($model, 'region')->widget(Select2::classname(), [
@@ -61,7 +61,7 @@ use yii\widgets\ActiveForm;
 //                    'select' => new JsExpression("function( event, ui ) {
 //                             console.log(ui.item);
 //                             $('#selected_region_id').val(ui.item.id);}"),
-                        ,"class"=>"form-control select2-show-search  border-bottom-0"],
+                            ,"class"=>"form-control select2-show-search  border-bottom-0"],
                         'pluginOptions' => [
 //                            'allowClear' => true,
                             'width' => '100%',
@@ -69,7 +69,7 @@ use yii\widgets\ActiveForm;
                     ])->label(false) ?>
                 </div>
                 <div class="col-xl-2 col-lg-3 col-md-12 mx-1 mb-0">
-<!--                    <a href="#" class="btn btn-lg btn-block btn-secondary br-tl-md-0 br-bl-md-0">Search Here</a>-->
+                    <!--                    <a href="#" class="btn btn-lg btn-block btn-secondary br-tl-md-0 br-bl-md-0">Search Here</a>-->
                     <?= Html::submitButton(Yii::t('app', 'SEARCH'), ['class' => 'btn btn-lg btn-block btn-secondary br-tl-md-0 br-bl-md-0', 'name' => 'btnSearch']) ?>
 
                 </div>
@@ -81,22 +81,22 @@ use yii\widgets\ActiveForm;
     <div class="container">
         <div id="small-categories" class="owl-carousel owl-carousel-icons7">
             <?php foreach ($model['popular_search'] as $serv) : ?>
-            <div class="item">
-                <div class="card mb-0">
-                    <div class="card-body p-3">
-                        <div class="cat-item d-flex">
-                            <a href="#" class="popular_service" id="popular_service<?=$serv['id']?>" data-serv="<?=$serv['id']?>"></a>
-                            <div class="cat-img mr-4 bg-secondary-transparent p-3 brround">
-                                <img src="rejoin/assets/images/products/categories/<?=$serv['photo']?>" alt="img">
-                            </div>
-                            <div class="cat-desc text-left">
-                                <h6 class="mb-3"><?=$serv['name'];?></h6>
-                                <small class="badge badge-pill badge-secondary mr-2"><?=$serv['cnt'].' '.Yii::t('app','serv.');?></small>
+                <div class="item">
+                    <div class="card mb-0">
+                        <div class="card-body p-3">
+                            <div class="cat-item d-flex">
+                                <a href="#" class="popular_service" id="popular_service<?=$serv['id']?>" data-serv="<?=$serv['id']?>"></a>
+                                <div class="cat-img mr-4 bg-secondary-transparent p-3 brround">
+                                    <img src="rejoin/assets/images/products/categories/<?=$serv['photo']?>" alt="img">
+                                </div>
+                                <div class="cat-desc text-left">
+                                    <h6 class="mb-3"><?=$serv['name'];?></h6>
+                                    <small class="badge badge-pill badge-secondary mr-2"><?=$serv['cnt'].' '.Yii::t('app','serv.');?></small>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <?php endforeach;?>
         </div>
     </div>
