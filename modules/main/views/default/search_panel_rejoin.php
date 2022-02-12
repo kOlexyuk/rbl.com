@@ -87,7 +87,7 @@ use yii\widgets\ActiveForm;
                             <div class="cat-item d-flex">
                                 <a href="#" class="popular_service" id="popular_service<?=$serv['id']?>" data-serv="<?=$serv['id']?>"></a>
                                 <div class="cat-img mr-4 bg-secondary-transparent p-3 brround">
-                                    <img src="rejoin/assets/images/products/categories/<?=$serv['photo']?>" alt="img">
+                                    <img src="rejoin/assets/images/products/categories/<?=$serv['photo']??'chip.png'?>" alt="img">
                                 </div>
                                 <div class="cat-desc text-left">
                                     <h6 class="mb-3"><?=$serv['name'];?></h6>
