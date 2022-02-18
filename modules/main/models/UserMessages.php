@@ -229,8 +229,7 @@ class UserMessages extends \yii\db\ActiveRecord
 
     public static function isCanSendReviw($id)
     {
-       $sql = "select  um.created_at  from user_messages um
-                
+       $sql = "select  um.created_at  from user_messages um                
                  WHERE  um.is_review = 1 and um.user_id_to = :user_id_to 
                and  user_id_from = :user_id_from  order by created_at desc limit 1";
 
@@ -238,7 +237,7 @@ class UserMessages extends \yii\db\ActiveRecord
              ,':user_id_from'=> Yii::$app->getUser()->getId()
          ])->one();
 
-         if($res == null)
+         if($res == null || YII_DEBUG === true)
              return true;
 
          return ((time() - $res['created_at']) >  Yii::$app->params['userMessages.ReviewExpire']);

@@ -14,8 +14,9 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\models\User */
-/* @var $message \app\modules\main\models\UserMessages */
-/* @var $my_message \app\modules\main\models\UserMessages[] */
+/* @var $new_message \app\modules\main\models\UserMessages */
+/* @var $review \app\modules\main\models\UserMessages[] */
+/* @var $messages \app\modules\main\models\UserMessages[] */
 
 //$this->registerJsFile('@web/rejoin/assets/js/admin-custom.js',['depends' => [\yii\web\JqueryAsset::className()]
 //]);
@@ -46,7 +47,7 @@ if (YII_ENV_DEV) echo __FILE__;
                                     <!-- /registration date -->
                                     <div class="wideget-user-rating"><a
                                                 href="#"><?= Util::showStars($model['rating']) ?></a>
-                                        <span>(<?= $model['view_count'] ?> <?= Yii::t("app", "Review") ?>)</span></div>
+                                        <span>(<?= $model['review_count'] ?> <?= Yii::t("app", "Review") ?>)</span></div>
                                     <div class="wideget-user-icons mt-2"><a href="#" class="facebook-bg mt-0"><i
                                                     class="fa fa-facebook"></i></a> <a href="#" class="twitter-bg"><i
                                                     class="fa fa-twitter"></i></a> <a href="#" class="google-bg"><i
@@ -69,6 +70,9 @@ if (YII_ENV_DEV) echo __FILE__;
                             <li class=""><a href="#tab-5" class="active"
                                             data-toggle="tab"><?= Yii::t('app', 'Profile') ?></a></li>
                             <li><a href="#tab-7" data-toggle="tab" class=""><?= Yii::t('app', 'Feedback') ?></a></li>
+                            <?php if(!Yii::$app->user->isGuest): ?>
+                            <li><a href="#tab-msg" data-toggle="tab" class=""><?= Yii::t('app', 'Messages') ?></a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
@@ -112,7 +116,7 @@ if (YII_ENV_DEV) echo __FILE__;
                     </div>
                 </div>
             </div>
-            <?php if ($my_message || true) : ?>
+            <?php if ($review ) : ?>
                 <div class="tab-pane userprof-tab" id="tab-7">
                     <!--Job listing-->
                     <div class="card mb-0 border-0">
@@ -123,9 +127,9 @@ if (YII_ENV_DEV) echo __FILE__;
                                         <div class="panel-heading">
                                             <?= Yii::t('app', 'Feedbacks') ?>
                                         </div>
-                                        <div class="col-lg-12 col-md-12  col-sm-12"  id="chat">
-                                            <?php if($my_message): ?>
-                                            <?php foreach ($my_message as $msg): ?>
+                                        <div class="col-lg-12 col-md-12  col-sm-12"  id="chat_review">
+                                            <?php if($review): ?>
+                                            <?php foreach ($review as $msg): ?>
                                                 <?= $this->renderFile("@app/modules/main/views/message/message_div2.php",
                                                 ['model'=>$msg,]); ?>
                                             <?php endforeach; ?>
@@ -134,10 +138,10 @@ if (YII_ENV_DEV) echo __FILE__;
                                     </div>
                                 </div>
                             </div>
-                            <?=   $this->render('@app/modules/main/views/message/form_review.php',   ['model'=>$model  ,  'message' => $message,
-                                'my_message'=>$my_message]);?>
-                            <?=   $this->render('@app/modules/main/views/message/form_message.php',   ['model'=>$model  ,  'message' => $message,
-                                'my_message'=>$my_message]);?>
+                            <h2 class="hidden text-success" id="senk_review"><?= Yii::t('app', "Thanks for your feedback!")?></h2>
+                            <?=   $this->render('@app/modules/main/views/message/form_review.php',   ['model'=>$model  ,  'message' => $new_message,
+                                'my_message'=>$review]);?>
+
                             <?php if(!Yii::$app->user->isGuest ): ?>
                                 <div class="row " id="div_message_button">
                                     <div class="col-md-8 margin-top-30">
@@ -145,8 +149,6 @@ if (YII_ENV_DEV) echo __FILE__;
                                             <button type="button" class="btn btn-info btn-single "
                                                     id="btn_send_review"><?= Yii::t('app', 'Send review') ?></button>
                                         <?php endif; ?>
-                                        <button type="button" class="btn btn-outline-success"
-                                                id="btn_send_message"><?= Yii::t('app', 'Send message') ?></button>
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -155,13 +157,39 @@ if (YII_ENV_DEV) echo __FILE__;
                     <!--Job Listing-->
                 </div>
             <?php endif; ?>
+            <div class="tab-pane userprof-tab" id="tab-msg">
+                <div class="card mb-0 border-0">
+                    <div class="card-body">
+                        <div class="row mb-5">
+                            <div class="col-lg-12 col-md-12  col-sm-12">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <?= Yii::t('app', 'Messages') ?>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12  col-sm-12"  id="chat_messages">
+                                        <?php if($messages): ?>
+                                            <?php foreach ($messages as $msg): ?>
+                                                <?= $this->renderFile("@app/modules/main/views/message/message_div2.php",
+                                                    ['model'=>$msg,]); ?>
+                                            <?php endforeach; ?>
+                                        <?php endif;?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?=   $this->render('@app/modules/main/views/message/form_message.php',   ['model'=>$model  ,  'message' => $new_message,
+                            'my_message'=>$review]);?>
+                        <?php if(!Yii::$app->user->isGuest ): ?>
+                            <div class="row " id="div_message_button">
+                                <div class="col-md-8 margin-top-30">
+                                    <button type="button" class="btn btn-outline-success"
+                                            id="btn_send_message"><?= Yii::t('app', 'Send message') ?></button>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-<!-- Message Modal -->
-
-
-
-
-<!-- Modal -->

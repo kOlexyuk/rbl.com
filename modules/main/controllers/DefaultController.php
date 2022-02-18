@@ -82,14 +82,17 @@ class DefaultController extends Controller
             return "profile not found!";
 
       //  show all approved reviews
-        $my_message =  UserMessages::getApprovedReview($id);
+        $review =  UserMessages::getApprovedReview($id);
 
-        $message = new UserMessages();
+        $messages = UserMessages::getMyMessagesToUser($id);
+
+        $new_message = new UserMessages();
 
         return $this->render('view_profile_rejoin', [
             'model' => $model,
-            'message' => $message,
-            'my_message'=>$my_message
+            'new_message' => $new_message,
+            'review'=>$review,
+            'messages'=>$messages
         ]);
     }
 

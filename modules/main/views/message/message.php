@@ -7,7 +7,6 @@ use kartik\rating\StarRating;
 $offset = '';
 if($model->user_id_to === Yii::$app->user->getId())
     $offset = 'col-md-offset-1';
-
 ?>
 <!--<div class="container contact-info">-->
 <div class="row" >

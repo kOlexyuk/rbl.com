@@ -95,7 +95,7 @@ $('#btn_submit_message').on('click', function (e){
         type: 'POST',
         data: {user_id_to: user_id_to , text:text , review:is_review, stars:stars},
         success: function (data) {
-            const ul =  $('#chat');
+            const ul =  $('#chat_messages');
             ul.append(data);
             $('#message_txtarea').val('');
 
@@ -132,13 +132,14 @@ $('#btn_submit_review').on('click', function (e){
         type: 'POST',
         data: {user_id_to: user_id_to , text:text , review:is_review, stars:stars},
         success: function (data) {
-            const ul =  $('#chat');
-            ul.append(data);
+            // const ul =  $('#chat');
+            // ul.append(data);
             $('#review_txtarea').val('');
             if(is_review === 1)
                 $('#review_stars').addClass('hidden');
             $('#row_review_form').addClass('hidden');
-             ul.scrollTop(ul[0].scrollHeight - ul[0].clientHeight);
+            $('#senk_review').removeClass('hidden');
+           //  ul.scrollTop(ul[0].scrollHeight - ul[0].clientHeight);
         },
         error: function (err) {
             $("#conteiner").html("ERROR" + err.message);

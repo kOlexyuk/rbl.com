@@ -14,7 +14,7 @@ class MessageController extends \yii\web\Controller
         $message =  UserMessages:: getMessagesToMe();
         $last_message = UserMessages::getLastMyMessages();
       //  return "message_test";
-        return $this->render('index1',['message'=>$message , 'last_message'=>$last_message]);
+        return $this->render('index2',['message'=>$message , 'last_message'=>$last_message]);
     }
 
     public function actionSend()

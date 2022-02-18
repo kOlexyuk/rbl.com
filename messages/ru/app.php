@@ -83,11 +83,12 @@ return [
     'Read' => 'Прочитано',
     'Feedbacks'=> 'Отзывы',
     'PLEASE_FILL_FOR_RESET_REQUEST' => 'Введите свой Email/Тлф и мы пришлём Вам инструкцию по восстановлению:',
-     'Feedbacks for me'=>'Отзывы на меня',
+     'Feedbacks on me'=>'Отзывы на меня',
      'My Feedbacks'=>'Мои отзывы',
     'Don\'t have account?'=>"Нет аккаунта? ",
     'I forgot my password'=>'Я забыл мой пароль',
     'Login With'=>"Вход с помощью",
-    "Member Since:"=>"На сайте с:"
+    "Member Since:"=>"На сайте с:",
+    "Thanks for your feedback!"=>"Спасибо за ваш отзыв!",
 
 ];
