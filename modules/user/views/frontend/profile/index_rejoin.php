@@ -25,9 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::a(Module::t('module', 'LINK_PASSWORD_CHANGE'), ['password-change'], ['class' => 'btn btn-primary']) ?>
             </p>
 
-            <?php echo   $this->render("@app/modules/user/views/frontend/profile/profile1.php" , ['model'=>$model ,        'message' => $message,
+            <?php echo   $this->render("@app/modules/user/views/frontend/profile/profile2.php" , ['model'=>$model , 'message' => $message,
                 'my_message'=>$my_message]) ?>
-
         </div>
     </section>
 

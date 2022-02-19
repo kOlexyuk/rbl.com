@@ -448,10 +448,19 @@ class User extends ActiveRecord implements IdentityInterface
            $profile ->id =  $this->id;
            $profile->save();
        }
-
        return $profile;
-
     }
+
+//    public static function getUserProfile()
+//    {
+//        $profile =  $this->hasOne(UserProfile::className(), ['id' => 'id'])->one();
+//        if(!isset($profile)) {
+//            $profile = new UserProfile();
+//            $profile ->id =  $this->id;
+//            $profile->save();
+//        }
+//        return $profile;
+//    }
 
 //    public static function onLanguageChanged($event)
 //    {
