@@ -37,9 +37,9 @@ class DefaultController extends Controller
             $service_id = Yii::$app->request->post()['service_id'];
             $service_area_id = Yii::$app->request->post()['service_area_id'];
             $region_id = Yii::$app->request->post()['region_id'];
-            $profileList = ProfileSearch::getProfileList(null,$region_id,$service_id,$service_area_id);
+            $person_type =  Yii::$app->request->post()['person_type'];
+            $profileList = ProfileSearch::getProfileList(null,$region_id,$service_id,$service_area_id , $person_type);
 
-//           return Util::getProfileListView( $profileList);
 
             $lang = substr(Yii::$app->language,0,2);//   $_SESSION['_language'];
             $content = sprintf("<input type='hidden' id='cnt_profList' value='%s'>", count($profileList));

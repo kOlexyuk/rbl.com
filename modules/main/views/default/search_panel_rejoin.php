@@ -19,6 +19,28 @@ use yii\widgets\ActiveForm;
 <?=Html::input('hidden',"selected_service_area_id",'0',['id'=>'selected_service_area_id' , 'data-label'=>'']);?>
 <?=Html::input('hidden',"selected_service_id",'0',['id'=>'selected_service_id' , 'data-label'=>'']);?>
 
+
+
+<div class="row ">
+    <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto text-center">
+        <div class="selectgroup selectgroup-pills">
+            <label class="selectgroup-item">
+                <input type="radio"  name="rb_person_type" value="2" class="selectgroup-input" checked="">
+                <span class="selectgroup-button"><?=Yii::t('app','All')?></span>
+            </label>
+            <label class="selectgroup-item">
+                <input type="radio" name="rb_person_type" value="1" class="selectgroup-input">
+                <span class="selectgroup-button"><?=Yii::t('app','Jur.person')?></span>
+            </label>
+            <label class="selectgroup-item">
+                <input type="radio" name="rb_person_type" value="0" class="selectgroup-input">
+                <span class="selectgroup-button"><?=Yii::t('app','Nat.person')?></span>
+            </label>
+        </div>
+    </div>
+</div>
+
+
 <div class="row">
     <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
         <div class="search-background bg-transparent">
@@ -32,9 +54,7 @@ use yii\widgets\ActiveForm;
                             'class' => "form-control select2-show-search  border-bottom-0",
                         ],
                         'pluginOptions' => [
-//                           'allowClear' => true,
                             'width' => '100%',
-//                            'theme'=>'material',
                         ],
                     ])->label(false) ?>
                 </div>
@@ -58,12 +78,8 @@ use yii\widgets\ActiveForm;
                         'data' => \yii\helpers\ArrayHelper::map($model['regionList'], 'id', 'value'),
                         'options' => ['placeholder' => Yii::t('app', 'Region')
                             , 'allowClear' => true  , 'id'=>'cbRegion'
-//                    'select' => new JsExpression("function( event, ui ) {
-//                             console.log(ui.item);
-//                             $('#selected_region_id').val(ui.item.id);}"),
                             ,"class"=>"form-control select2-show-search  border-bottom-0"],
                         'pluginOptions' => [
-//                            'allowClear' => true,
                             'width' => '100%',
                         ],
                     ])->label(false) ?>
@@ -103,3 +119,5 @@ use yii\widgets\ActiveForm;
 </div>
 <?php $form = ActiveForm::end(); ?>
 <?php \yii\widgets\Pjax::end(); ?>
+
+

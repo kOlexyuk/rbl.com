@@ -111,7 +111,7 @@ class ProfileSearch extends Model
      * @return array|\yii\db\DataReader
      * @throws \yii\db\Exception
      */
-    public static function getProfileList($id=null, $region_ids=null,$service_ids=null, $service_area_ids=null)
+    public static function getProfileList($id=null, $region_ids=null,$service_ids=null, $service_area_ids=null , $person_type= null)
     {
         $id = ( $id==0 || $id == '' ? null : $id);
         $region_ids = ( $region_ids==0 || $region_ids == '' ? null : $region_ids);
@@ -125,8 +125,8 @@ class ProfileSearch extends Model
             $status = null;
         }
 
-         $sql = sprintf("call sp_search_profile('%s', %d, %d, '%s', '%s', '%s' ,%d );"
-             , Yii::$app->language,$id, $status,$region_ids,$service_ids,$service_area_ids , $all_role);
+         $sql = sprintf("call sp_search_profile('%s', %d, %d, '%s', '%s', '%s' ,%d , %d );"
+             , Yii::$app->language,$id, $status,$region_ids,$service_ids,$service_area_ids , $all_role , $person_type);
 
         $command=Yii::$app->db->createCommand($sql);
          return  $command->queryAll();

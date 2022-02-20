@@ -94,6 +94,7 @@ return [
     "Jur.person"=>"Юр.лицо",
     "Nat.person"=>"Физ.лицо",
     "Jur.Nat.person"=>"Юр.Физ.лицо",
+    "All"=>"Все",
     "Type"=>"Тип",
 
 ];

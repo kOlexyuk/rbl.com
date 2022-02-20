@@ -6,9 +6,9 @@ const cbService = $("#cbService");
 const cbServiceArea =  $("#cbServiceArea");
 const cbRegion =   $("#cbRegion");
 
+const radioPersonType = $('input[name="rb_person_type"]');
+
 $(document).ready(function() {
-
-
 
     cbService.on('select2:select', function (e) {
         // var data = e.params.data;
@@ -30,6 +30,8 @@ $(document).ready(function() {
         selected_region_id.attr('data-label',e.params.data.text);
         // console.log(data);
     });
+
+
 
     cbServiceArea.on('select2:unselect', function (e) {
      //   var data = e.params.data;
@@ -55,37 +57,17 @@ $(document).ready(function() {
     });
 
     $('.btn-user-favorite').on('click',handleFavorite);
-    // selected_service_id.val(cbService.params.data.id);
-    // selected_service_id.attr('data-label',e.params.data.text);
-    // selected_service_area_id.val(e.params.data.id);
-    // selected_service_area_id.attr('data-label',e.params.data.text);
-    // selected_region_id.val(e.params.data.id);
-    // selected_region_id.attr('data-label',e.params.data.text);
 
-    // cbService.trigger('select2:unselect');
-    // cbServiceArea.trigger('select2:unselect');
-    // cbRegion.trigger('select2:unselect');
-
-     // const myModal = document.querySelector('#myModal');
-     // if(myModal != null) {
-     //     $("#myModal").modal('show');
-     //     $("#myModal>.modal-dialog").addClass("")
-     // }
 });
 
 
 
 function handleFavorite(e){
 
-    // e.preventDefault();
-    // let $form = $(this);
+
      const hiddenFavorite= this.id.split('_')[1];
 
      const btn = this;
-
-
-
-
      let lang = document.documentElement.lang ;
 
     // const url = '/user-favorite/'+hiddenFavorite+'/update';
@@ -134,7 +116,12 @@ $('.popular_service').on('click',function(event){
    }
 });
 
+radioPersonType.on('click',function (e){
+    // console.log(e);
+     let id = e.target.value;
 
+    $('#start-search-form').submit();
+});
 
 $('#start-search-form').on('beforeSubmit', function (e){
 
@@ -143,29 +130,32 @@ let lang =document.documentElement.lang ;
 if(isPopularService === false){
     selected_service_id.val(cbService.val());
     selected_service_area_id.val(cbServiceArea.val());
-    selected_region_id.val(cbRegion.val());
-}
+    selected_region_id.val(cbRegion.val());}
     isPopularService = false;
+    let person_type = $('input[name="rb_person_type"]:checked').val();
+
+    $("#global-loader").show();
 
     $.ajax({
         url: '/'+lang+'/profile-list',
         dataType: "html",
         type: 'POST',
-        data: { service_id: selected_service_id.val(),service_area_id:selected_service_area_id.val(),region_id:selected_region_id.val()},
+        data: { service_id: selected_service_id.val(),service_area_id:selected_service_area_id.val()
+            ,region_id:selected_region_id.val()
+            ,person_type:person_type},
 
         success: function(data){
-
-            // const prof = JSON.parse(data)
-
             $("#div_profile_list").html(data);
             $("#span_popular_profile_cnt").text($("#cnt_profList").val());
-
             $('.btn-user-favorite').on('click',handleFavorite);
-
         },
         error: function (err) {
             $("#conteiner").html("ERROR"+ err.message);
+        },
+        complete: function (jqXHR,  textStatus){
+            $("#global-loader").fadeOut("slow");
         }
+
     });
 
     e.preventDefault();
