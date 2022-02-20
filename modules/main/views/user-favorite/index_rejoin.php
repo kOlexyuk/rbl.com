@@ -19,20 +19,7 @@ $this->title = Yii::$app->name;
 <div class="user-favorite-index">
     <div class="container">
         <div class="row">
-<!--            <div class="col-md-1 col-lg1"></div>-->
-<!--            <div id="div_profile_list" class="col-md-10 col-lg10">-->
-<!--                --><?php
-////                Util::getProfileListView($model)
-//                $lang = $_SESSION['_language'];
-//                $content = "";
-//                foreach ($model as $puser){
-//                    $content .= $this->render('@app/modules/user/views/frontend/profile/user_card.php', ['puser'=>$puser
-//                        , 'lang1'=>$lang , 'pdf'=>1]);
-//                }
-//                echo $content;
-//                ?>
-<!--            </div>-->
-<!--            <div class="col-md-1 col-lg1"></div>-->
+
 
             <div class="col-xl-9 col-lg-12 col-md-12">
                 <div class="card">

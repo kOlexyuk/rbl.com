@@ -17,6 +17,7 @@ use Yii;
  * @property int $view_count
  * @property string $language
  * @property string $web
+ * @property int $profile_type
  *
  * @property User $id0
  */
@@ -41,7 +42,7 @@ class UserProfile extends \yii\db\ActiveRecord
 //            [['note', 'photo', 'name', 'surname'], 'string'],
 //            [['photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg , gif'],
 //            ['photo', 'file', 'types' => 'jpg,jpeg,png,gif', 'allowEmpty' => true],
-            [['note', 'photo', 'name', 'surname', 'address', 'zip', 'language','web'], 'safe'],
+            [['note', 'photo', 'name', 'surname', 'address', 'zip', 'language','web', 'profile_type'], 'safe'],
             [['id'], 'unique'],
             [['id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id' => 'id']],
         ];
@@ -63,6 +64,7 @@ class UserProfile extends \yii\db\ActiveRecord
             'zip'=>Yii::t('app', 'ZIP'),
              'language'=>Yii::t('app', 'Language'),
             'web'=>Yii::t('app', 'Web'),
+            'profile_type'=>Yii::t('app', 'Profile type'),
         ];
     }
 
@@ -127,6 +129,4 @@ class UserProfile extends \yii\db\ActiveRecord
     public static function getProfileList(){
        return  self::find()->asArray()->limit(15)->all();
     }
-
-
 }

@@ -9,6 +9,7 @@
 //use yii\widgets\ActiveForm;
 
 
+use app\modules\user\models\User;
 use kartik\select2\Select2;
 use yii\bootstrap\ActiveForm;
 //use yii\widget\ActiveForm;
@@ -166,7 +167,7 @@ $this->registerJs($script, View::POS_LOAD);
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
 <!--                                        <div class="checkbox checkbox-info">-->
 <!--                                        --><?//= $form->field($model, 'show_contact')
 //                                            ->checkbox(['class' => 'form-control'
@@ -183,6 +184,10 @@ $this->registerJs($script, View::POS_LOAD);
                                             ->label(Yii::t('app', 'Show contats'))
                                         ;?>
 
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <?= $form->field($model, 'profile_type')->dropDownList(User::getProfileTypeArray()) ?>
                                     </div>
                                 </div>
                             </div>
@@ -222,8 +227,7 @@ $this->registerJs($script, View::POS_LOAD);
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label class="form-label">Professional Skills</label>
-
+                            <label class="form-label"><?= Yii::t('app','Professional Skills') ?></label>
 
                             <?= $form->field($model, 'services'
                             )->widget(Select2::classname(), [

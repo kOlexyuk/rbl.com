@@ -46,12 +46,19 @@ use yii\web\IdentityInterface;
  * @property integer $phone_confirm_created
  * @property integer $phone_request_count
  * @property integer $show_contact
+ * @property integer $profile_type
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_BLOCKED = 0;
     const STATUS_ACTIVE = 1;
     const STATUS_WAIT = 2;
+
+    //  1-jur.persom , 0 - nat.person,2-jur.and nat.
+
+    const JUR_PERSON = 1;
+    const NAT_PERSON = 0;
+    const JUR_NAT_PERSON = 2;
 
     /**
      * @inheritdoc
@@ -152,6 +159,15 @@ class User extends ActiveRecord implements IdentityInterface
             self::STATUS_BLOCKED => Module::t('module', 'USER_STATUS_BLOCKED'),
             self::STATUS_ACTIVE => Module::t('module', 'USER_STATUS_ACTIVE'),
             self::STATUS_WAIT => Module::t('module', 'USER_STATUS_WAIT'),
+        ];
+    }
+
+    public static function getProfileTypeArray()
+    {
+        return [
+            self::JUR_PERSON => Yii::t('app', 'Jur.person'),
+            self::NAT_PERSON =>  Yii::t('app', 'Nat.person'),
+            self::JUR_NAT_PERSON =>  Yii::t('app', 'Jur.Nat.person'),
         ];
     }
 

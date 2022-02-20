@@ -90,5 +90,10 @@ return [
     'Login With'=>"Вход с помощью",
     "Member Since:"=>"На сайте с:",
     "Thanks for your feedback!"=>"Спасибо за ваш отзыв!",
+    "Professional Skills" => "Профессиональные умения",
+    "Jur.person"=>"Юр.лицо",
+    "Nat.person"=>"Физ.лицо",
+    "Jur.Nat.person"=>"Юр.Физ.лицо",
+    "Type"=>"Тип",
 
 ];
