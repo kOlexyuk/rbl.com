@@ -24,7 +24,7 @@ class ProfileSearch extends Model
     public $services;
     public $regions;
     public $service_areas;
-
+    public $profile_type;
 //    public $zip;
 //    public $address;
 
