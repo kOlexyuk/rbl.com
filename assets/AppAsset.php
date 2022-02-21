@@ -38,7 +38,7 @@ class AppAsset extends AssetBundle
         //<!-- Custom scroll bar css-->
         "rejoin//assets/plugins/scroll-bar/jquery.mCustomScrollbar.css",
 
-
+        "rejoin//assets/color-skins/color-skins/color4.css",
 
 //        'css/site.css',
        'css/my_style.css',

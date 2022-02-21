@@ -45,7 +45,7 @@ use yii\widgets\ActiveForm;
     <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
         <div class="search-background bg-transparent">
             <div class="form row no-gutters ">
-                <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg mx-1 mb-0">
+                <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg  mb-0">
                     <!--                    <input type="text" class="form-control input-lg br-tr-md-0 br-br-md-0" id="text4" placeholder="Enter Your Keywords">-->
                     <?= $form->field($model, 'service'
                     )->widget(Select2::classname(), [
@@ -58,7 +58,7 @@ use yii\widgets\ActiveForm;
                         ],
                     ])->label(false) ?>
                 </div>
-                <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg mx-1 mb-0">
+                <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg  mb-0">
                     <!--                    <input type="text" class="form-control input-lg br-md-0" id="text5" placeholder="Select Location">-->
                     <?= $form->field($model, 'service_area'
                     )->widget(Select2::classname(), [
@@ -73,7 +73,7 @@ use yii\widgets\ActiveForm;
                     ])->label(false) ?>
                     <!--                    <span><img src="rejoin/assets/images/svg/gps.svg" class="location-gps" alt="img"></span>-->
                 </div>
-                <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg mx-1 mb-0">
+                <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg  mb-0">
                     <?= $form->field($model, 'region')->widget(Select2::classname(), [
                         'data' => \yii\helpers\ArrayHelper::map($model['regionList'], 'id', 'value'),
                         'options' => ['placeholder' => Yii::t('app', 'Region')
@@ -84,11 +84,15 @@ use yii\widgets\ActiveForm;
                         ],
                     ])->label(false) ?>
                 </div>
-                <div class="col-xl-2 col-lg-3 col-md-12 mx-1 mb-0">
+                <div class="col-xl-2 col-lg-3 col-md-12  mb-0">
                     <!--                    <a href="#" class="btn btn-lg btn-block btn-secondary br-tl-md-0 br-bl-md-0">Search Here</a>-->
-                    <?= Html::submitButton(Yii::t('app', 'SEARCH'), ['class' => 'btn btn-lg btn-block btn-secondary br-tl-md-0 br-bl-md-0', 'name' => 'btnSearch']) ?>
+                    <?= Html::submitButton('<i class="fa fa-search mr-1"></i>'.Yii::t('app', 'SEARCH'), ['class' => 'btn btn-lg btn-block btn-secondary br-tl-md-0 br-bl-md-0', 'name' => 'btnSearch']) ?>
 
                 </div>
+
+<!--                <div class="col-xl-2 col-lg-3 col-md-12 mb-0">-->
+<!--                    <a href="#" class="btn btn-lg btn-block btn-secondary br-tl-md-0 br-bl-md-0"><i class="fa fa-search mr-1"></i>Search</a>-->
+<!--                </div>-->
             </div>
         </div>
     </div>
