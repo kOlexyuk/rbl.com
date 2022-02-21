@@ -21,7 +21,8 @@ $image = ($puser['photo']??Yii::$app->params['user.empty_photo']);
             <img class="avatar avatar-xxl  d-block br-7 cover-image mr-4" src="<?=$image?>">
             <div class="employer-icons">
                 <a href='<?="/".$lang1.'/main/'.$puser['id']."/profile"?>' target="_blank" class="font-weight-semibold fs-18 text-body"><?=$puser['username']?></a>
-                <div class="mt-2"><i class="fa fa-user mr-1"></i><?=$puser['services_ref']?></div>
+                <div class="mt-2"><i class="fa fa-user mr-1"></i><?= User::getProfileTypeArray()[$puser['profile_type']]?></div>
+                <div class="mt-2"><i class="fa fa-gears mr-1"></i><?=$puser['services_ref']?></div>
                 <div class="mt-1"><i class="fa fa-map-marker mr-1"></i><?=$puser['regions']?></div>
                 <div class="mt-1"><i class="fa fa-star mr-1"></i><?=Util::showStars($puser['rating'])?><?=$puser['rating']?></div>
                 <div class="mt-1"><i class="fa fa-briefcase mr-1"></i><?=Util::toShortString($puser['note'])?></div>
