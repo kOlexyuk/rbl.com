@@ -84,6 +84,46 @@ $fieldOptions3 = [
                             <div class="passwd">
                                 <?= $form->field($model, 'password',$fieldOptions2)->passwordInput() ?>
                             </div>
+
+<!--                            <div class="checkbox">-->
+<!--                                <label class="form-control custom-checkbox">-->
+<!--                                    <input type="checkbox" class="custom-control-input">-->
+<!--                                    <span class="custom-control-label text-dark">Agree the <a href="terms.html">terms and policy</a></span>-->
+<!--                                </label>-->
+<!--                            </div>-->
+
+
+<!--                            <div class="form-group">-->
+<!--                                <label class="custom-control custom-checkbox">-->
+<!--                                    <input type="checkbox" class="custom-control-input">-->
+<!--                                    <span class="custom-control-label text-dark">Agree the <a href="terms.html">terms and policy</a></span>-->
+<!--                                </label>-->
+<!--                            </div>-->
+
+
+                            <div class="agree">
+<!--                            --><?//= $form->field($model, 'agree')->checkbox([
+//                                'template' => '<div class="col-md-2">{input}</div><div class="col-md-10"><span class="custom-control-label text-dark">Agree the <a href="terms.html">terms and policy</a></span></div><div class="col-md-4">{error}</div>'
+//                            ])?>
+
+                           <?php    $template = [
+                                'labelOptions'=>['class'=>'col-lg-3'],
+                                'template' => '{label} <div class="col-lg-offset-9 col-lg-9 checkbox">{input}{error}{hint}</div>',
+                                ];
+                                echo $form->field($model, 'agree', $template)->checkbox() ?>
+
+                            </div>
+
+<!--                            --><?//= $form->field($model, 'show_contact')
+//                                ->checkbox(['class' => 'custom-control-input'
+//                                    ,'template' => '<label class="custom-control mt-4 custom-checkbox">{input}
+//                                                                 <span class="custom-control-label text-dark pl-2">{label}
+//                                                                 </span></label>'
+//                                ])
+//                                ->label(Yii::t('app', 'Show contats'))
+//                            ;?>
+
+
                             <div class="submit">
                                 <?= Html::submitButton(Module::t('module', 'USER_BUTTON_SIGNUP')
                                     , ['class' => 'btn btn-primary  btn-block', 'name' => 'signup-button' , 'id'=>'btnSignUp']) ?>
@@ -95,7 +135,7 @@ $fieldOptions3 = [
                 </div>
             </div>
        </div>
-    </div>
 </div>
+
 
 

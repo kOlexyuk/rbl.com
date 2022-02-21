@@ -162,7 +162,7 @@ class DefaultController extends Controller
                 }
             }
 
-            return $this->render('signup', [
+            return $this->render('signup2', [
                 'model' => $model,
             ]);
 

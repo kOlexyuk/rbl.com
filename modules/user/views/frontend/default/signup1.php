@@ -72,6 +72,12 @@ $fieldOptions3 = [
             ])->label(false) ?>
 
             <?= $form->field($model, 'password',$fieldOptions2)->passwordInput() ?>
+
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" name="agree" value="agree" checked="">
+                <span class="custom-control-label">Согласен с <a href="#">условиями</a></span>
+            </label>
+
             <div class="form-group">
                 <?= Html::submitButton(Module::t('module', 'USER_BUTTON_SIGNUP')
                     , ['class' => 'btn btn-primary  btn-block', 'name' => 'signup-button' , 'id'=>'btnSignUp']) ?>

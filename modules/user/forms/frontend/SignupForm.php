@@ -22,6 +22,8 @@ class SignupForm extends Model
 
     private $_defaultRole;
 
+    public $agree;
+
     /**
      * @param string $defaultRole
      * @param array $config

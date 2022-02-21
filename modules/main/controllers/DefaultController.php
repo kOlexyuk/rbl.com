@@ -96,6 +96,11 @@ class DefaultController extends Controller
         ]);
     }
 
+    public function actionCondition(){
+
+        return $this->render('@app/modules/main/views/condition/index.php');
+    }
+
     public function actionPdf1()
     {
         // http://wch.com/ru/main/user-favorite/
