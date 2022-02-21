@@ -129,7 +129,9 @@ class ProfileSearch extends Model
              , Yii::$app->language,$id, $status,$region_ids,$service_ids,$service_area_ids , $all_role , $person_type);
 
         $command=Yii::$app->db->createCommand($sql);
-         return  $command->queryAll();
+        $res = $command->queryAll();
+        var_dump($res);
+        return $res;
 
     }
 
