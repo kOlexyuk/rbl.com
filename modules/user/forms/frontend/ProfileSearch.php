@@ -130,7 +130,7 @@ class ProfileSearch extends Model
 
         $command=Yii::$app->db->createCommand($sql);
         $res = $command->queryAll();
-        var_dump($res);
+//        var_dump($res);
         return $res;
 
     }
