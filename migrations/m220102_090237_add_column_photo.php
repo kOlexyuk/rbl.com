@@ -30,14 +30,14 @@ class m220102_090237_add_column_photo extends Migration
     // Use up()/down() to run migration code without a transaction.
     public function up()
     {
-        $this->addColumn('service' ,'photo','varchar(255)');
-        $this->addColumn('service_area' ,'photo', 'varchar(255)');
+//        $this->addColumn('service' ,'photo','varchar(255)');
+//        $this->addColumn('service_area' ,'photo', 'varchar(255)');
     }
 
     public function down()
     {
-        $this->dropColumn('service' ,'photo');
-        $this->dropColumn('service_area' ,'photo');
+//        $this->dropColumn('service' ,'photo');
+//        $this->dropColumn('service_area' ,'photo');
     }
 
 }

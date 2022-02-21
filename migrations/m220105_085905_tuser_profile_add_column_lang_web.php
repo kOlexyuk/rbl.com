@@ -29,14 +29,14 @@ class m220105_085905_tuser_profile_add_column_lang_web extends Migration
     // Use up()/down() to run migration code without a transaction.
     public function up()
     {
-       $this->addColumn('user_profile', 'language' , 'varchar(255)');
-       $this->addColumn('user_profile', 'web' , 'varchar(255)');
+//       $this->addColumn('user_profile', 'language' , 'varchar(255)');
+//       $this->addColumn('user_profile', 'web' , 'varchar(255)');
     }
 
     public function down()
     {
-        $this->dropColumn('user_profile', 'language');
-        $this->dropColumn('user_profile', 'web');
+//        $this->dropColumn('user_profile', 'language');
+//        $this->dropColumn('user_profile', 'web');
     }
 
 }
