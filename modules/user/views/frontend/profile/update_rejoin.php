@@ -70,6 +70,7 @@ $this->registerJs($script, View::POS_LOAD);
         <?=Html::input('hidden',"selected_region_id",'0',['id'=>'selected_region_id' , 'data-label'=>'']);?>
         <?=$form->field($model, 'deleted_region_ids')->hiddenInput(['id'=>'deleted_region_ids' , 'data-label'=>''])->label(false);?>
         <?=$form->field($model, 'added_region_ids')->hiddenInput(['id'=>'added_region_ids' , 'data-label'=>''])->label(false);?>
+
         <?=Html::input('hidden',"empty_photo",($data['empty_photo']??''),['id'=>'empty_photo' , 'data-label'=>'']);?>
         <div class="row ">
             <div class="col-lg-10 col-md-12 col-sm-12">
@@ -208,13 +209,50 @@ $this->registerJs($script, View::POS_LOAD);
                                 'theme' => Select2::THEME_DEFAULT,
                                 'data' => \yii\helpers\ArrayHelper::map($data['region_json'], 'id', 'value'),
                                 'options' => ['placeholder' => Yii::t('app','Region'), 'allowClear' => true  , 'id'=>'cbRegion' , 'multiple' => true,
+//                    'select' => new JsExpression("function( event, ui ) {
+//                     console.log(ui.item);
+//                     $('#selected_service_area_id').val(ui.item.id);}"),
+
+//                                    "select" => new JsExpression("function( event, ui ) { console.log('select'); }"),
+//                                    "unselect" => new JsExpression("function(event, ui) { console.log('unselect'); }"),
+
+//                                    "select" => ("function( event, ui ) { console.log('select'); }"),
+//                                    "unselect" => ("function(event, ui) { console.log('unselect'); }"),
+
+
                                 ],
                                 'pluginOptions' => [
                                     'allowClear' => true,
-//                                    'width' => '220px',
                                 ],
-                            ])->label(false) ?>
+                                'pluginEvents' => [
+                                 //   "change" => "function(event, ui) { alert('change' + ui); }",
+                                    "select2:select" => "function(e) { 
+                                                 addRowRegion(e);    
+                                    }",
+                                    "select2:unselect" => "function(e) { deleteRowRegion(e); }",
 
+                                    "selectall" => "function(e) { 
+                                                 alert('selectall');  return false;
+                                    }",
+                                    "unselectall" => "function(e) { alert('unselectall');  return false;}",
+                                ]
+                            ])->label(false) ?>
+                        </div>
+                        <div class="form-group">
+                            <table id="t_region" class="table">
+                                <tr><th><?=Yii::t('app','Region')?></th>
+                                    <th><?=Yii::t('app','Radius')?></th>
+                                </tr>
+                                <?php foreach($data['user_region'] as $user_region): ?>
+                                    <tr id="row_region_<?=$user_region['region_id']?>">
+                                        <td><?=$user_region['name']?></td>
+                                        <td>
+                                            <input type="number" min="1" class="w-100"
+                                                   value="<?=$user_region['radius']?>" >
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </table>
                         </div>
                     </div>
                 </div>

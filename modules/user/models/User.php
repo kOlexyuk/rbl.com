@@ -5,6 +5,7 @@ namespace app\modules\user\models;
 use app\components\EitherValidator;
 
 use app\modules\guid\models\Region;
+use app\modules\guid\models\UserRegion;
 use app\modules\guid\models\UserService;
 use app\modules\guid\models\UserServiceArea;
 
@@ -493,6 +494,13 @@ class User extends ActiveRecord implements IdentityInterface
     public function getRegions()
     {
         return $this->hasMany(Region::className(), ['id' => 'region_id'])->viaTable('user_region', ['user_id' => 'id']);
+    }
+
+    public function getUserRegions()
+    {
+        return $this->hasMany(UserRegion::className(), ['user_id' => 'id'])
+            ->innerJoin('region','region_id = region.id')
+            ->select(['user_region.user_id','user_region.region_id','user_region.radius','region.name']);
     }
 
     public function getFavorites()

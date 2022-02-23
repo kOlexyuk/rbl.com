@@ -10,9 +10,10 @@ use Yii;
  *
  * @property int $user_id
  * @property int $region_id
- *
+ * @property int $radius
  * @property User $user
  * @property Region $region
+
  */
 class UserRegion extends \yii\db\ActiveRecord
 {
@@ -30,8 +31,8 @@ class UserRegion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'region_id'], 'required'],
-            [['user_id', 'region_id'], 'integer'],
+            [['user_id', 'region_id','radius'], 'required'],
+            [['user_id', 'region_id','radius'], 'integer'],
             [['user_id', 'region_id'], 'unique', 'targetAttribute' => ['user_id', 'region_id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
             [['region_id'], 'exist', 'skipOnError' => true, 'targetClass' => Region::className(), 'targetAttribute' => ['region_id' => 'id']],
@@ -46,6 +47,7 @@ class UserRegion extends \yii\db\ActiveRecord
         return [
             'user_id' => Yii::t('app', 'User ID'),
             'region_id' => Yii::t('app', 'Region ID'),
+            'radius' => Yii::t('app', 'Radius'),
         ];
     }
 

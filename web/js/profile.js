@@ -1,3 +1,80 @@
+function addRowRegion(event){
+    const tbody = document.getElementById('t_region');
+    let row = document.createElement("tr");
+    row.setAttribute('id', 'row_region_'+ event.params.data.id);
+    let td1 = document.createElement("td");
+    td1.appendChild(document.createTextNode(event.params.data.element.text));
+    let td2 = document.createElement("td");
+    let num = document.createElement('input');
+    num.setAttribute('type', 'number');
+    num.setAttribute('min', '1');
+    num.setAttribute('value', '10');
+    num.classList.add('w-100');
+    td2.appendChild (num);
+    row.appendChild(td1);
+    row.appendChild(td2);
+    tbody.appendChild(row);
+}
+
+function deleteRowRegion(event){
+    let row = document.querySelector('#row_region_'+ event.params.data.id);
+    if(row != null)
+    row.remove();
+
+}
+
+// 'id' => 'profile-update-form'
+
+ $(document).ready(function() {
+
+     $('#profile-update-form').on('beforeSubmit', function(event){
+         event.preventDefault();
+             // let frm = $(this);
+             // let data = $(this).serialize();
+
+             let region_radius = getRegionRadius();
+               document.querySelector('#added_region_ids').value = region_radius;
+
+     });
+
+ });
+
+ function getRegionRadius(){
+     const tbody = document.getElementById('t_region');
+     let rows = tbody.querySelectorAll('tr[id^="row_region_"]');
+     let reg_r = {};
+     rows.forEach( function (item){
+          reg_r[item.id.replace('row_region_','')] =  item.querySelector('input[type="number"]').value;
+      });
+
+     return  JSON.stringify(reg_r);
+ }
+
+// $("#signup-form").on('beforeSubmit', function (event) {
+//     event.preventDefault();
+//     let frm = $(this);
+//     let data = $(this).serialize();
+//     $.ajax({
+//         url: frm.attr('action'),
+//         type: 'POST',
+//         data: data
+//     }).done(function(data){
+//         if (data.error == null) {
+//             console.log(data);
+//             $("#tokenId").val(data);
+//             $("#divSignUp").toggleClass('hidden');
+//             $("#divPhoneConfirm").toggleClass('hidden');
+//         } else {
+//             // Если при обработке данных на сервере произошла ошибка
+//             console.log(data);
+//         }
+//
+//     });
+//     return false;
+//
+// });
+
+
 // $(document).ready(function() {
 //
 //     const cbService = $("#cbService");
@@ -87,9 +164,6 @@
 // $('#profile_img').attr('src', $('#empty_photo').val());
 // $('#profileupdateform-photo').val('');
 // });
-
-
-
 
 //
 // $('#service-add').on('click', function() {

@@ -54,6 +54,7 @@ class ProfileController extends Controller
         $user = $this->findModel();
 //        self::updateProfile($user, $this);
         $model = new ProfileUpdateForm($user);
+
         if ($model->load(Yii::$app->request->post()) ){
             $photo = UploadedFile::getInstance($model, 'photo');
             if(!empty($photo->tempName))
@@ -68,6 +69,7 @@ class ProfileController extends Controller
             $data['service_json'] = Util::toArrayForJson( $data['service']);
             $data['region'] = Region::getRegionList();
             $data['region_json'] = Util::toArrayForJson( $data['region']);
+            $data['user_region'] =   $user->getUserRegions()->asArray()->all();
 //            $model->photo_person = Util::base64_to_jpeg( $model->photo);
             return $this->render('update_rejoin', [
                 'model' => $model,

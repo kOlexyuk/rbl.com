@@ -182,11 +182,22 @@ class ProfileUpdateForm extends Model
                 ['=', 'user_id',  $user->id],
             ]);
 
-            foreach ($this->regions as $adr){
-                if(is_numeric( $adr)) {
+//            foreach ($this->regions as $adr){
+//                if(is_numeric( $adr)) {
+//                    $userRegion = new UserRegion();
+//                    $userRegion->user_id =  $user->id; // \Yii::$app->user->identity->id;
+//                    $userRegion->region_id = $adr;
+//                    $userRegion->save();
+//                }
+//            }
+
+            $regin_radius = json_decode($this->added_region_ids) ;
+            foreach ( $regin_radius as $key => $val){
+                if(is_numeric( $key)) {
                     $userRegion = new UserRegion();
                     $userRegion->user_id =  $user->id; // \Yii::$app->user->identity->id;
-                    $userRegion->region_id = $adr;
+                    $userRegion->region_id = $key;
+                    $userRegion->radius = $val;
                     $userRegion->save();
                 }
             }

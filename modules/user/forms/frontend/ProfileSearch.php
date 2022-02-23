@@ -151,7 +151,8 @@ class ProfileSearch extends Model
         }
 
         $sql = sprintf("call sp_search_profile('%s', %d, %d, '%s', '%s', '%s' ,%d , %d );"
-            , Yii::$app->language,$id, $status,$region_ids,$service_ids,$service_area_ids , $all_role,null);
+            , Yii::$app->language,$id, $status,$region_ids,$service_ids,$service_area_ids
+            , $all_role,null);
 
         $command=Yii::$app->db->createCommand($sql);
         $profile =  $command->queryOne();
