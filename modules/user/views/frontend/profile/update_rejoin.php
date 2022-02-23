@@ -81,21 +81,12 @@ $this->registerJs($script, View::POS_LOAD);
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-3 mb-4 mb-lg-0">
-<!--                                <input type="file" class="dropify" data-default-file="/rejoin/assets/images/users/avatar.png" data-height="180"/>-->
-<!--                                --><?//= $form->field($model, 'photo')
-//                                    ->fileInput(['class'=>"dropify", 'data-default-file'=>"/rejoin/assets/images/users/avatar.png", 'data-height'=>"180" ])
-//                                    ->label(false) ?>
+
 
                                 <?php echo $form->field($model, 'photo')->widget(\diecoding\dropify\Dropify::className(), [
                                 'options' => [ 'data-default-file'=> "/rejoin/assets/images/users/avatar.png", 'data-height'=>"180"
                                ],
                                 'pluginOptions' => [
-//                                        'imgFileExtensions' => ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'ico', 'webp', 'svg' , '*'],
-//                                        'allowedFileExtensions'=>['*']
-                                        // ?? "/rejoin/assets/images/users/avatar.png"
-//                                    'src'=>$model->photo
-                                        // options for dropify, as output  ```$(#options['id']).dropify(pluginOptions);```
-                                   // 'src'=>$model->photo  //?? "/rejoin/assets/images/users/avatar.png",
                                         ]
                                 ]) ?>
                             </div>
@@ -239,7 +230,7 @@ $this->registerJs($script, View::POS_LOAD);
                             ])->label(false) ?>
                         </div>
                         <div class="form-group">
-                            <table id="t_region" class="table">
+                            <table id="t_region" class="table_radius">
                                 <tr><th><?=Yii::t('app','Region')?></th>
                                     <th><?=Yii::t('app','Radius')?></th>
                                 </tr>

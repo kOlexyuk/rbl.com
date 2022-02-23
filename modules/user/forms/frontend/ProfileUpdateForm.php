@@ -165,7 +165,7 @@ class ProfileUpdateForm extends Model
                 ['=', 'user_id',  $user->id],
             ]);
 
-
+           if($this->services)
             foreach ($this->services as $ads["id"]){
                 if(is_numeric( $ads["id"])) {
                     $userService = new UserService();

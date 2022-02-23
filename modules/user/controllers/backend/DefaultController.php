@@ -127,19 +127,42 @@ class DefaultController extends Controller
      */
     public function actionUpdateProfile($id)
     {
+//        $user = $this->findModel($id);
+//        $model = new ProfileUpdateForm($user);
+//        if ($model->load(Yii::$app->request->post()) ){
+//
+//            $photo = UploadedFile::getInstance($model, 'photo');
+//
+//            if(!empty($photo->tempName))
+//                $model->photo = 'data:image/jpeg;base64,'.base64_encode(file_get_contents($photo->tempName));
+//            else
+//                $model->photo = Yii::$app->request->post()['photo_hidden'];
+//            if($model->update()) {
+//                return $this->redirect(['index']);
+//            }
+//        } else {
+//            $data['service'] = Service::getServiceList();
+//            $data['service_json'] = Util::toArrayForJson( $data['service']);
+//            $data['region'] = Region::getRegionList();
+//            $data['region_json'] = Util::toArrayForJson( $data['region']);
+//            $data['empty_photo']  = Yii::$app->params['user.empty_photo'];
+//            return $this->render('@app/modules/user/views/frontend/profile/update_rejoin', [
+//                'model' => $model,
+//                'data' => $data,
+//            ]);
+//        }
+
         $user = $this->findModel($id);
-//        ProfileController::updateProfile($user, $this);
+//        self::updateProfile($user, $this);
         $model = new ProfileUpdateForm($user);
+
         if ($model->load(Yii::$app->request->post()) ){
-
             $photo = UploadedFile::getInstance($model, 'photo');
-
             if(!empty($photo->tempName))
                 $model->photo = 'data:image/jpeg;base64,'.base64_encode(file_get_contents($photo->tempName));
             else
                 $model->photo = Yii::$app->request->post()['photo_hidden'];
             if($model->update()) {
-//                return $this->redirect(['view', 'id' => $id]);
                 return $this->redirect(['index']);
             }
         } else {
@@ -147,12 +170,13 @@ class DefaultController extends Controller
             $data['service_json'] = Util::toArrayForJson( $data['service']);
             $data['region'] = Region::getRegionList();
             $data['region_json'] = Util::toArrayForJson( $data['region']);
-            $data['empty_photo']  = Yii::$app->params['user.empty_photo'];
-            return $this->render('@app/modules/user/views/frontend/profile/update', [
+            $data['user_region'] =   $user->getUserRegions()->asArray()->all();
+            return $this->render('@app/modules/user/views/frontend/profile/update_rejoin.php', [
                 'model' => $model,
                 'data' => $data,
             ]);
         }
+
     }
 
 

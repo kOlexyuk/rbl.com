@@ -70,7 +70,6 @@ class ProfileController extends Controller
             $data['region'] = Region::getRegionList();
             $data['region_json'] = Util::toArrayForJson( $data['region']);
             $data['user_region'] =   $user->getUserRegions()->asArray()->all();
-//            $model->photo_person = Util::base64_to_jpeg( $model->photo);
             return $this->render('update_rejoin', [
                 'model' => $model,
                 'data' => $data,
