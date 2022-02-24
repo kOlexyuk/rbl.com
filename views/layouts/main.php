@@ -31,7 +31,6 @@ if (isset($this->params['breadcrumbs'])) {
 		<div id="global-loader">
 			<img src="/rejoin/assets/images/loader.svg" class="loader-img" alt="">
 		</div>
-
 		<!--Header Main-->
 		<div class="header-main">
 			<!--Top Bar-->
@@ -97,19 +96,17 @@ if (isset($this->params['breadcrumbs'])) {
 				</div>
 			</div>
 			<!--Top Bar-->
-
 			<!-- Mobile Header -->
 				<div class="sticky">
 					 <div class="horizontal-header clearfix ">
 						<div class="container">
 							<a id="horizontal-navtoggle" class="animated-arrow"><span></span></a>
-							<span class="smllogo"><img src="rejoin/assets/images/brand/rbl3.png" width="80" alt="img"/></span>
+							<span class="smllogo"><img src="/rejoin/assets/images/brand/rbl3.png" width="80" alt="img"/></span>
 							<a href="#" class="callusbtn bg-light"><i class="fa fa-bell text-body" aria-hidden="true"></i></a>
 						</div>
 					</div>
 				</div>
 		    <!-- /Mobile Header -->
-
 			<!--Horizontal-main-->
 			<div class="horizontal-main clearfix">
 				<div class="horizontal-mainwrapper container clearfix">
@@ -146,7 +143,6 @@ if (isset($this->params['breadcrumbs'])) {
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
-
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" ><i class="fa fa-arrow-up"></i></a>
 

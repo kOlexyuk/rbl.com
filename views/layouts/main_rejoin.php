@@ -103,7 +103,7 @@ if (isset($this->params['breadcrumbs'])) {
 					 <div class="horizontal-header clearfix ">
 						<div class="container">
 							<a id="horizontal-navtoggle" class="animated-arrow"><span></span></a>
-							<span class="smllogo"><img src="rejoin/assets/images/brand/rbl3.png" width="80" alt="img"/></span>
+							<span class="smllogo"><img src="/rejoin/assets/images/brand/rbl3.png" width="80" alt="img"/></span>
 							<a href="#" class="callusbtn bg-light"><i class="fa fa-bell text-body" aria-hidden="true"></i></a>
 						</div>
 					</div>
