@@ -56,6 +56,8 @@ return [
 
                 '/' => 'main/default/index',
                 'contact' => 'main/contact/index',
+                'about' => 'main/about/index',
+                'faq' => 'main/faq/index',
                 'condition' => 'main/default/condition',
                 'user-message'=>'main/message/index',
                 'update-read'=>'main/message/update-read',

@@ -26,7 +26,7 @@ use yii\web\View;
 /* @var $model \app\modules\user\forms\frontend\ProfileUpdateForm */
 /* @var $data mixed*/
 
-//if (YII_ENV_DEV) echo __FILE__;
+if (YII_ENV_DEV) echo __FILE__;
 
 
 $this->title = Yii::t('app', 'Profile');
@@ -63,8 +63,7 @@ $this->registerJs($script, View::POS_LOAD);
 
 <section class="sptb">
     <div class="row">
-        <div class="col-lg-8 col-md-12 col-md-12">
-            <div>
+        <div class="col-lg-8 col-md-12">
                 <?php $form = ActiveForm::begin(['id' => 'profile-update-form', 'options' => ['enctype' => 'multipart/form-data']]); ?>
                 <?=Html::input('hidden',"selected_services_id",'0',['id'=>'selected_service_id' , 'data-label'=>'']);?>
                 <?=$form->field($model, 'deleted_service_ids')->hiddenInput(['id'=>'deleted_service_ids' , 'data-label'=>''])->label(false);?>
@@ -72,7 +71,6 @@ $this->registerJs($script, View::POS_LOAD);
                 <?=Html::input('hidden',"selected_region_id",'0',['id'=>'selected_region_id' , 'data-label'=>'']);?>
                 <?=$form->field($model, 'deleted_region_ids')->hiddenInput(['id'=>'deleted_region_ids' , 'data-label'=>''])->label(false);?>
                 <?=$form->field($model, 'added_region_ids')->hiddenInput(['id'=>'added_region_ids' , 'data-label'=>''])->label(false);?>
-
                 <?=Html::input('hidden',"empty_photo",($data['empty_photo']??''),['id'=>'empty_photo' , 'data-label'=>'']);?>
                 <div class="">
                     <div class="">
@@ -295,12 +293,9 @@ $this->registerJs($script, View::POS_LOAD);
                     </div>
                 </div>
                 <input type="hidden" name="photo_hidden" id="contact_photo" value="<?= $model->photo?>">
-
                 <?php ActiveForm::end(); ?>
-            </div>
         </div>
-        <div class="col-lg-4 col-md-12">
-            <div>
+        <div class="col-lg-4 col-md-12 mt-4">
             <div class="card">
                 <div class="card-header"><h3 class="card-title">Terms And Conditions</h3></div>
                 <div class="card-body">
@@ -392,7 +387,6 @@ $this->registerJs($script, View::POS_LOAD);
                         <li class="ml-5 mb-0"><a href="tips.html"> View more..</a></li>
                     </ul>
                 </div>
-            </div>
             </div>
         </div>
     </div>

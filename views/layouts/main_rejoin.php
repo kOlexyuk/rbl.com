@@ -127,10 +127,11 @@ if (isset($this->params['breadcrumbs'])) {
                             <?php endif;?>
 							<li><a href='/main/default/index'><?=Yii::t('app', 'NAV_HOME');?> <span class="fa m-0"></span></a></li>
 <!--							<li><a href="about.html">--><?//=Yii::t('app', 'About Us');?><!-- </a></li>-->
-							<li><a href="contact"> <?=Yii::t('app', 'Contact Us');?> <span class="horizontal-arrow"></span></a></li>
+							<li><a href="/contact"> <?=Yii::t('app', 'Contact Us');?> <span class="horizontal-arrow"></span></a></li>
 <?php if (!Yii::$app->user->isGuest): ?>
                             <li><a href='/main/user-favorite'> <?=Yii::t('app', 'Favorites')?> <span class="horizontal-arrow"></span></a></li>
-
+                            <li><a href='/about'> <?=Yii::t('app', 'About As')?> <span class="horizontal-arrow"></span></a></li>
+                            <li><a href='/faq'> <?=Yii::t('app', 'FAQ')?> <span class="horizontal-arrow"></span></a></li>
                             <li><a href='/user/profile/index'> <?=Yii::t('app', 'NAV_PROFILE')?> <span class="horizontal-arrow"></span></a></li>
                             <?php endif;?>
 
