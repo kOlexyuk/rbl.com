@@ -8,7 +8,8 @@ $this->registerJsFile('@web/js/page_favorite.js'
     ,  ['depends' => [\yii\web\JqueryAsset::className()]]);
 
 if (YII_ENV_DEV) echo __FILE__;
-$this->title = Yii::$app->name;
+$this->title =  Yii::t('app','Favorite');
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 

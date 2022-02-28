@@ -40,10 +40,7 @@ if (isset($this->params['breadcrumbs'])) {
 					<div class="row">
 						<div class="col-xl-7 col-lg-7 col-sm-4 col-7  my-auto">
 							<div class="top-bar-left d-flex">
-<!--								<div class="clearfix">-->
-<!--									<ul class="socials">-->
-<!--									</ul>-->
-<!--								</div>-->
+
 								<div class="clearfix">
 									<ul class="contact border-left">
                                         <?='<li class="nav-item cls">'.$this->render('select-language').'</li>';?>
@@ -136,6 +133,18 @@ if (isset($this->params['breadcrumbs'])) {
                             <?php endif;?>
 
 						</ul>
+                    <?php if (Yii::$app->user->isGuest): ?>
+                        <ul class="mb-0 pr-2">
+                            <li class="d-none d-lg-flex"><span><a class="btn btn-secondary ad-post mt-1"
+                                                                  href="/user/default/signup"><i class="fa fa-briefcase"></i> Submit a Job</a></span>
+                            </li>
+                        </ul>
+                        <ul class="mb-0 pl-2 create-resume-btn">
+                            <li class="d-none d-lg-flex"><span><a class="btn btn-info ad-post mt-1"
+                                                                  href="/user/default/signup"><i class="fa fa-edit"></i> Create Resume</a></span>
+                            </li>
+                        </ul>
+                    <?php endif; ?>
 					</nav>
 					<!--/Nav-->
 				</div>
@@ -143,6 +152,36 @@ if (isset($this->params['breadcrumbs'])) {
 			<!--/Horizontal-main-->
 		</div>
 		<!--/Header Main-->
+    <!--Breadcrumb-->
+    <section>
+        <div class="bannerimg cover-image bg-background3" data-image-src="../assets/images/banners/banner2.jpg"
+             style="background: url(&quot;/rejoin/assets/images/banners/banner2.jpg&quot;) center center;">
+            <div class="header-text mb-0">
+                <div class="container">
+                    <div class="text-center text-white"><h1 class=""><?=$this->title ?></h1>
+<!--                        <ol class="breadcrumb">-->
+<!--                            <li class="breadcrumb-item"><a href="#">Home</a></li>-->
+<!--                            <li class="breadcrumb-item"><a href="#">Blog</a></li>-->
+<!--                            <li class="breadcrumb-item active text-white" aria-current="page">Blog-Details</li>-->
+<!--                        </ol>-->
+
+                        <?php
+                        echo Breadcrumbs::widget([
+                            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+//                            'options' => ["class"=>"breadcrumb-item"],
+                            'itemTemplate' => '<li  class="breadcrumb-item"><span>{link}<span></li>',
+                            'tag' => 'div'  //по умолчанию
+                        ]);
+                        ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Breadcrumb-->
+
+
     <div class="">
         <?= Alert::widget() ?>
         <?= $content ?>

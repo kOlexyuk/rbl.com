@@ -1,3 +1,11 @@
+<?php
+/* @var $this yii\web\View */
+/* @var $model array */
+
+if (YII_ENV_DEV) echo __FILE__;
+$this->title =  Yii::t('app','FAQ');
+$this->params['breadcrumbs'][] = $this->title;
+?>
 <div class="app-content">
 					<div class="side-app">
 

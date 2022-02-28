@@ -1,3 +1,14 @@
+<?php
+/* @var $this yii\web\View */
+/* @var $model array */
+
+if (YII_ENV_DEV) echo __FILE__;
+//$this->title = Yii::$app->name;
+$this->title =  Yii::t('app','About us');
+//$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Home'), 'url' => ['/main/default/index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+
 <section class="sptb">
     <div class="container">
         <div class="row">

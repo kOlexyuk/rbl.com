@@ -29,7 +29,7 @@ use yii\web\View;
 if (YII_ENV_DEV) echo __FILE__;
 
 
-$this->title = Yii::t('app', 'Profile');
+$this->title = Yii::t('app', 'Profile update');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Profile'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 

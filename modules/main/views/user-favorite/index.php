@@ -10,7 +10,9 @@ use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 
 if (YII_ENV_DEV) echo __FILE__;
-$this->title = Yii::$app->name;
+//$this->title = Yii::$app->name;
+$this->title =  Yii::t('app','Favorite');
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="nav-bar">
