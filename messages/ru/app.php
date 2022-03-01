@@ -96,5 +96,14 @@ return [
     "Jur.Nat.person"=>"Юр.Физ.лицо",
     "All"=>"Все",
     "Type"=>"Тип",
+    "Already have an account?"=>"У вас уже есть аккаунт?",
+    "Agree the"=>"Agree the",
+    'Create Resume'=>'Создать резюме',
+    'Submit a Job' => 'Отправить работу' ,
+    'Contact Us'=> 'Связаться с нами',
+    'About As'=>'О нас',
+    'Search Job'=>'Поиск работы',
+    'Find The Best Job For Your Future'=>'Найдите лучшую работу для своего будущего',
+    'It is a long established fact that a reader will be distracted by the readable.' => ''
 
 ];

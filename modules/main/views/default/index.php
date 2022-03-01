@@ -11,7 +11,7 @@ use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 
 //if (YII_ENV_DEV) echo __FILE__;
-$this->title = Yii::$app->name;
+$this->title = strtoupper(Yii::$app->name);
 
 ?>
 
@@ -31,8 +31,8 @@ $this->title = Yii::$app->name;
                         <div class="row">
                             <div class="col-xl-8 col-md-12 d-block mx-auto">
                                 <div class="testimonia text-center">
-                                    <img src="rejoin/assets/images/products/intro/search.svg" class="w-70 h-100 mb-5 mx-auto text-center" alt="image">
-                                    <h3>Search Job</h3>
+                                    <img src="/rejoin/assets/images/products/intro/search.svg" class="w-70 h-100 mb-5 mx-auto text-center" alt="image">
+                                    <h3><?=Yii::t('app','Search Job') ?></h3>
                                     <p>
                                         Now You Become a Part of Our Website<br>
                                         rejoin is free classified ads website template with awesome responsive webOffline.
@@ -46,7 +46,7 @@ $this->title = Yii::$app->name;
                         <div class="row">
                             <div class="col-xl-8 col-md-12 d-block mx-auto">
                                 <div class="testimonia text-center">
-                                    <img src="rejoin/assets/images/products/intro/join.svg" class="w-70 mb-5 mx-auto text-center" alt="image">
+                                    <img src="/rejoin/assets/images/products/intro/join.svg" class="w-70 mb-5 mx-auto text-center" alt="image">
                                     <h3>Join With Us</h3>
                                     <p>
                                         Now You Become a Part of Our Website<br>
@@ -83,8 +83,8 @@ $this->title = Yii::$app->name;
         <div class="header-text mb-0">
             <div class="container">
                 <div class="text-center text-white mb-7">
-                    <h1 class="mb-1">Find The Best Job For Your Future</h1>
-                    <p>It is a long established fact that a reader will be distracted by the readable.</p>
+                    <h1 class="mb-1"><?= Yii::t('app','Find The Best Job For Your Future') ?></h1>
+<!--                    <p>It is a long established fact that a reader will be distracted by the readable.</p>-->
                 </div>
 
                 <?php

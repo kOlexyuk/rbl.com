@@ -125,10 +125,11 @@ if (isset($this->params['breadcrumbs'])) {
 							<li><a href='/main/default/index'><?=Yii::t('app', 'NAV_HOME');?> <span class="fa m-0"></span></a></li>
 <!--							<li><a href="about.html">--><?//=Yii::t('app', 'About Us');?><!-- </a></li>-->
 							<li><a href="/contact"> <?=Yii::t('app', 'Contact Us');?> <span class="horizontal-arrow"></span></a></li>
-<?php if (!Yii::$app->user->isGuest): ?>
-                            <li><a href='/main/user-favorite'> <?=Yii::t('app', 'Favorites')?> <span class="horizontal-arrow"></span></a></li>
                             <li><a href='/about'> <?=Yii::t('app', 'About As')?> <span class="horizontal-arrow"></span></a></li>
                             <li><a href='/faq'> <?=Yii::t('app', 'FAQ')?> <span class="horizontal-arrow"></span></a></li>
+<?php if (!Yii::$app->user->isGuest): ?>
+                            <li><a href='/main/user-favorite'> <?=Yii::t('app', 'Favorites')?> <span class="horizontal-arrow"></span></a></li>
+
                             <li><a href='/user/profile/index'> <?=Yii::t('app', 'NAV_PROFILE')?> <span class="horizontal-arrow"></span></a></li>
                             <?php endif;?>
 
@@ -136,12 +137,12 @@ if (isset($this->params['breadcrumbs'])) {
                     <?php if (Yii::$app->user->isGuest): ?>
                         <ul class="mb-0 pr-2">
                             <li class="d-none d-lg-flex"><span><a class="btn btn-secondary ad-post mt-1"
-                                                                  href="/user/default/signup"><i class="fa fa-briefcase"></i> Submit a Job</a></span>
+                                                                  href="/user/default/signup"><i class="fa fa-briefcase"></i> <?= Yii::t('app','Submit a Job')?></a></span>
                             </li>
                         </ul>
                         <ul class="mb-0 pl-2 create-resume-btn">
                             <li class="d-none d-lg-flex"><span><a class="btn btn-info ad-post mt-1"
-                                                                  href="/user/default/signup"><i class="fa fa-edit"></i> Create Resume</a></span>
+                                                                  href="/user/default/signup"><i class="fa fa-edit"></i> <?= Yii::t('app','Create Resume') ?></a></span>
                             </li>
                         </ul>
                     <?php endif; ?>
@@ -159,12 +160,6 @@ if (isset($this->params['breadcrumbs'])) {
             <div class="header-text mb-0">
                 <div class="container">
                     <div class="text-center text-white"><h1 class=""><?=$this->title ?></h1>
-<!--                        <ol class="breadcrumb">-->
-<!--                            <li class="breadcrumb-item"><a href="#">Home</a></li>-->
-<!--                            <li class="breadcrumb-item"><a href="#">Blog</a></li>-->
-<!--                            <li class="breadcrumb-item active text-white" aria-current="page">Blog-Details</li>-->
-<!--                        </ol>-->
-
                         <?php
                         echo Breadcrumbs::widget([
                             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -173,7 +168,6 @@ if (isset($this->params['breadcrumbs'])) {
                             'tag' => 'div'  //по умолчанию
                         ]);
                         ?>
-
                     </div>
                 </div>
             </div>

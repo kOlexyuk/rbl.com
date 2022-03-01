@@ -58,13 +58,9 @@ $fieldOptions3 = [
                     ); ?>
                     <div class="wrapper wrapper2">
                     <div class="form-group">
-<!--                        <label class="form-label text-dark">Name</label>-->
-<!--                        <input type="text" class="form-control" placeholder="Enter name">-->
                         <?= $form->field($model, 'username',$fieldOptions3) ?>
                     </div>
                     <div class="form-group">
-<!--                        <label class="form-label text-dark">Email address</label>-->
-<!--                        <input type="email" class="form-control" placeholder="Enter email">-->
                         <?= $form->field($model, 'email',$fieldOptions1) ?>
                     </div>
                     <div class="form-group">
@@ -82,29 +78,22 @@ $fieldOptions3 = [
                     </div>
                     <div class="form-group">
                         <?= $form->field($model, 'password',$fieldOptions2)->passwordInput() ?>
-<!--                        <label class="form-label text-dark">Password</label>-->
-<!--                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
                     </div>
                     </div>
-
-
-
                     <div class="form-group">
                         <label class="custom-control custom-checkbox">
-<!--                            <input type="checkbox" class="custom-control-input"  form="">-->
                             <input type="hidden" name="SignupForm[agree]" value="0">
                             <input type="checkbox" id="signupform-agree" name="SignupForm[agree]" value="1" required="" class="custom-control-input" >
-                            <span class="custom-control-label text-dark">Agree the <a href="condition">terms and policy</a></span>
+                            <span class="custom-control-label text-dark"><?= Yii::t('app', 'Agree the')?> <a href="condition"><?= Yii::t('app', 'terms and policy')?></a></span>
                             <p class="help-block help-block-error"></p>
                         </label>
                     </div>
                     <div class="form-footer mt-2">
-<!--                        <a href="home.html" class="btn btn-primary btn-block">Create New Account</a>-->
                         <?= Html::submitButton(Module::t('module', 'USER_BUTTON_SIGNUP')
                             , ['class' => 'btn btn-primary  btn-block', 'name' => 'signup-button' , 'id'=>'btnSignUp']) ?>
                     </div>
                     <div class="text-center  mt-3 text-dark">
-                        <p class="text-dark mb-0">Already have an account?<a href='/user/default/login' class="text-primary ml-1"><?=Yii::t('app', 'NAV_LOGIN')?></a></p>
+                        <p class="text-dark mb-0"><?= Yii::t('app','Already have an account?') ?><a href='/user/default/login' class="text-primary ml-1"><?=Yii::t('app', 'NAV_LOGIN')?></a></p>
                     </div>
                     <?php ActiveForm::end(); ?>
                 </div>
