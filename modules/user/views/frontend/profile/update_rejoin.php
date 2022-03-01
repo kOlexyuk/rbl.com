@@ -81,10 +81,9 @@ $this->registerJs($script, View::POS_LOAD);
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-3 mb-4 mb-lg-0">
-
-
                                         <?php echo $form->field($model, 'photo')->widget(\diecoding\dropify\Dropify::className(), [
-                                            'options' => [ 'data-default-file'=> "/rejoin/assets/images/users/avatar.png", 'data-height'=>"180"
+                                            'options' => [ 'data-default-file'=> "/rejoin/assets/images/users/avatar.png"
+                                                , 'data-height'=>"180"
                                             ],
                                             'pluginOptions' => [
                                             ]

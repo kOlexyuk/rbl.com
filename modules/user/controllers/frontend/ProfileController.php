@@ -18,6 +18,11 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 
+use yii\imagine\Image;
+use Imagine\Gd;
+use Imagine\Image\Box;
+use Imagine\Image\BoxInterface;
+
 class ProfileController extends Controller
 {
     public function behaviors()
@@ -58,7 +63,12 @@ class ProfileController extends Controller
         if ($model->load(Yii::$app->request->post()) ){
             $photo = UploadedFile::getInstance($model, 'photo');
             if(!empty($photo->tempName))
-                $model->photo = 'data:image/jpeg;base64,'.base64_encode(file_get_contents($photo->tempName));
+            {
+                Image::thumbnail($photo->tempName, 80, 80)
+                    ->save($photo->tempName.'tmp', ['quality' => 80]);
+                $model->photo = 'data:image/jpeg;base64,' . base64_encode(file_get_contents($photo->tempName.'tmp'));
+            }
+
             else
                 $model->photo = Yii::$app->request->post()['photo_hidden'];
             if($model->update()) {
@@ -85,10 +95,15 @@ class ProfileController extends Controller
 
             $photo = UploadedFile::getInstance($model, 'photo');
 
-            if(!empty($photo->tempName))
-                $model->photo = 'data:image/jpeg;base64,'.base64_encode(file_get_contents($photo->tempName));
-            else
+            if(!empty($photo->tempName)) {
+                $img = Yii::getAlias($photo->tempName);
+                Image::thumbnail($img, 80, 80)
+                    ->save(Yii::getAlias("tmp".$photo->tempName), ['quality' => 80]);
+                $model->photo = 'data:image/jpeg;base64,' . base64_encode(file_get_contents("tmp".$photo->tempName));
+            }
+            else {
                 $model->photo = Yii::$app->request->post()['photo_hidden'];
+            }
             if($model->update()) {
 //                return $this->redirect(['view', 'id' => $id]);
                 return $controller->redirect(['index']);

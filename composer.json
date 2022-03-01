@@ -26,7 +26,8 @@
         "kartik-v/yii2-widget-select2": "dev-master",
         "kartik-v/yii2-widget-rating": "*",
         "diecoding/yii2-dropify": "*",
-        "yii2tech/html2pdf": "*"
+        "yii2tech/html2pdf": "*",
+        "yiisoft/yii2-imagine": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
